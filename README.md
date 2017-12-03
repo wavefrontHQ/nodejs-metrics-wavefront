@@ -42,7 +42,7 @@ reporter.start(1000);
 ```
 
 **Reporting different metric types**
-Examples can be found in [support/reference](metric type examples).
+Examples can be found in [support/reference/](metric type examples).
 
 **Adding a counter**
 ```javascript
