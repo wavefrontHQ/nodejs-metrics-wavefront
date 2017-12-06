@@ -4,9 +4,9 @@
   "version": "0.1.11",
   "repository": {
     "type": "git",
-    "url": "git://github.com/paragsanghavi/metrics.git"
+    "url": "git://github.com/wavefrontHQ/nodejs-metrics-wavefront.git"
   },
-  "author": "Parag Sanghavi <paragsanghavi@gmail.com> (wavefront.com)",
+  "author": "Parag Sanghavi <paragsanghavi@gmail.com>, now maintained by Wavefront by VMWare",
   "directories": {
     "lib": "."
   },
