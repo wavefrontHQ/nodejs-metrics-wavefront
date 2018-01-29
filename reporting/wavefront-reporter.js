@@ -103,7 +103,7 @@ WavefrontReporter.prototype.send = function(name, value, timestamp, tags) {
     return;
   }
   if (!tags) { tags = ''; }
-  console.log(util.format('%s.%s ', this.prefix, name), value,timestamp, tags);
+  // console.log(util.format('%s.%s ', this.prefix, name), value,timestamp, tags);
   this.socket.write(util.format('%s.%s %s %s %s\n', this.prefix, name, value,
     timestamp, tags));
 };
@@ -111,7 +111,7 @@ WavefrontReporter.prototype.send = function(name, value, timestamp, tags) {
 WavefrontReporter.prototype.reportCounter = function(counter, timestamp) {
   var send = this.send.bind(this);
   var tags = tagger(counter.tags,this.globaltags);
-  console.log(util.format('%s.%s', counter.name, 'count'), counter.count, timestamp, tags);
+  // console.log(util.format('%s.%s', counter.name, 'count'), counter.count, timestamp, tags);
   send(counter.name, counter.count, timestamp, tags);
 };
 
