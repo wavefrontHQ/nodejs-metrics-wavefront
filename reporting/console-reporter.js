@@ -71,12 +71,12 @@ function ff(value) {
 }
 
 function printCounter(counter) {
-  console.log(counter.name);
+  console.log(counter.name, tagger(counter.tags || {}));
   console.log('             count = %d', counter.count);
 }
 
 function printMeter(meter) {
-  console.log(meter.name);
+  console.log(meter.name, tagger(meter.tags || {}));
   console.log('             count = %d', meter.count);
   console.log('         mean rate = %s events/%s', ff(meter.meanRate()), 'second');
   console.log('     1-minute rate = %s events/%s', ff(meter.oneMinuteRate()), 'second');
@@ -85,7 +85,7 @@ function printMeter(meter) {
 }
 
 function printTimer(timer) {
-  console.log(timer.name);
+  console.log(timer.name, tagger(timer.tags || {}));
   console.log('             count = %d', timer.count());
   console.log('         mean rate = %s events/%s', ff(timer.meanRate()), 'second');
   console.log('     1-minute rate = %s events/%s', ff(timer.oneMinuteRate()), 'second');
@@ -100,7 +100,7 @@ function printHistogram(histogram) {
   if(isHisto) {
     // log name and count if a histogram, otherwise assume this metric is being
     // printed as part of another (like a timer).
-    console.log(histogram.name);
+    console.log(histogram.name, tagger(histogram.tags || {}));
     console.log('             count = %d', histogram.count);
   }
 
@@ -120,5 +120,18 @@ function printHistogram(histogram) {
   console.log('            99.9%% <= %s%s', ff(percentiles[.999]), durationUnit);
 }
 
-module.exports = ConsoleReporter;
+function tagger(tags) {
+  var str = '';
+    for (var p in tags) {
+        if (tags.hasOwnProperty(p)) {
+            str += p + '=\"' + escapeQuotes(tags[p]) + '\" ';
+        }
+    }
+    return str;
+}
 
+function escapeQuotes(str) {
+  return str.replace(/\"/g, "\\\"");
+}
+
+module.exports = ConsoleReporter;

@@ -169,21 +169,25 @@ WavefrontReporter.prototype.reportHistogram = function(histogram, timestamp) {
 };
 
 function tagger(tags,globaltags) {
-  //return tags in the format "env=prod service=qa"
+  //return tags in the format 'env="prod" service="qa"'
   //It also merges the global tags with the metric tags
   var str = '';
     for (var p in tags) {
         if (tags.hasOwnProperty(p)) {
-            str += p + '=' + tags[p] + ' ';
+            str += p + '=\"' + escapeQuotes(tags[p]) + '\" ';
         }
     }
     for (var p in globaltags) {
         if (globaltags.hasOwnProperty(p)) {
-            str += p + '=' + globaltags[p] + ' ';
+            str += p + '=\"' + escapeQuotes(globaltags[p]) + '\" ';
         }
     }
     //console.log('tag string: %s', str);
     return str;
+}
+
+function escapeQuotes(str) {
+  return str.replace(/\"/g, "\\\"");
 }
 
 function isEmpty(value) {
