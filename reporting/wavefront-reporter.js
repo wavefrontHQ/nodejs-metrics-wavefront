@@ -103,7 +103,7 @@ WavefrontReporter.prototype.send = function(name, value, timestamp, tags) {
     return;
   }
   if (!tags) { tags = ''; }
-  console.log(util.format('%s.%s ', this.prefix, name), value,timestamp, tags);
+  // console.log(util.format('%s.%s ', this.prefix, name), value,timestamp, tags);
   this.socket.write(util.format('%s.%s %s %s %s\n', this.prefix, name, value,
     timestamp, tags));
 };
@@ -111,7 +111,7 @@ WavefrontReporter.prototype.send = function(name, value, timestamp, tags) {
 WavefrontReporter.prototype.reportCounter = function(counter, timestamp) {
   var send = this.send.bind(this);
   var tags = tagger(counter.tags,this.globaltags);
-  console.log(util.format('%s.%s', counter.name, 'count'), counter.count, timestamp, tags);
+  // console.log(util.format('%s.%s', counter.name, 'count'), counter.count, timestamp, tags);
   send(counter.name, counter.count, timestamp, tags);
 };
 
@@ -169,21 +169,25 @@ WavefrontReporter.prototype.reportHistogram = function(histogram, timestamp) {
 };
 
 function tagger(tags,globaltags) {
-  //return tags in the format "env=prod service=qa"
+  //return tags in the format 'env="prod" service="qa"'
   //It also merges the global tags with the metric tags
   var str = '';
     for (var p in tags) {
         if (tags.hasOwnProperty(p)) {
-            str += p + '=' + tags[p] + ' ';
+            str += p + '=\"' + escapeQuotes(tags[p]) + '\" ';
         }
     }
     for (var p in globaltags) {
         if (globaltags.hasOwnProperty(p)) {
-            str += p + '=' + globaltags[p] + ' ';
+            str += p + '=\"' + escapeQuotes(globaltags[p]) + '\" ';
         }
     }
     //console.log('tag string: %s', str);
     return str;
+}
+
+function escapeQuotes(str) {
+  return str.replace(/\"/g, "\\\"");
 }
 
 function isEmpty(value) {

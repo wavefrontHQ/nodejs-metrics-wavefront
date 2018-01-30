@@ -14,9 +14,6 @@ var Meter = module.exports = function Meter(tags) {
   }else{
     this.tags = {}
   }
-  if(!(Object.keys(this.tags).length === 0 && this.tags.constructor === Object)){
-    console.log('Meter tag string: %s', this.tags);
-  }
 }
 
 // Mark the occurence of n events
