@@ -1,60 +1,26 @@
 {
-  "_from": "wavefrontmetrics",
-  "_id": "wavefrontmetrics@0.1.12",
-  "_inBundle": false,
-  "_integrity": "sha1-MlQ/IOeaIEUTGCnS3jADK05E/SY=",
-  "_location": "/wavefrontmetrics",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "wavefrontmetrics",
-    "name": "wavefrontmetrics",
-    "escapedName": "wavefrontmetrics",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+  "name": "metrics-wavefront",
+  "version": "1.0.0",
+  "description": "Wavefront Reporters for metrics",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
   },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/wavefrontmetrics/-/wavefrontmetrics-0.1.12.tgz",
-  "_shasum": "32543f20e79a2045131829d2de30032b4e44fd26",
-  "_spec": "wavefrontmetrics",
-  "_where": "/Users/yooh/nodejs",
-  "author": {
-    "name": "Parag Sanghavi",
-    "email": "paragsanghavi@gmail.com",
-    "url": "www.wavefront.com"
-  },
-  "bugs": {
-    "url": "https://github.com/wavefrontHQ/nodejs-metrics-wavefront/issues"
-  },
-  "bundleDependencies": false,
-  "dependencies": {},
-  "deprecated": false,
-  "description": "A node.js port of Coda Hale's metrics library.  In use at Yammer.Modified to add tags to metric data",
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-string": "^1.3.0",
-    "debug": "^2.5.2",
-    "mocha": "^2.4.5"
-  },
-  "directories": {
-    "lib": "."
-  },
-  "engines": {
-    "node": ">=0.10.x"
-  },
-  "homepage": "https://github.com/wavefrontHQ/nodejs-metrics-wavefront#readme",
-  "name": "wavefrontmetrics",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wavefrontHQ/nodejs-metrics-wavefront.git"
+    "url": "https://github.com/wavefrontHQ/node-metrics-wavefront.git"
   },
-  "scripts": {
-    "test": "mocha test/unit"
+  "author": "Vikram Raman <rvikram@vmware.com>",
+  "license": "MIT",
+  "keywords": [
+    "metrics",
+    "wavefront"
+  ],
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3"
   },
-  "version": "0.1.13"
+  "dependencies": {
+    "metrics": "^0.1.11"
+  }
 }
