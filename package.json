@@ -1,8 +1,11 @@
 {
-  "name": "metrics-wavefront",
+  "name": "wavefrontmetrics",
   "version": "1.0.0",
   "description": "Wavefront Reporters for metrics",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=8.1.0 <10.4.0"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -14,7 +17,8 @@
   "license": "MIT",
   "keywords": [
     "metrics",
-    "wavefront"
+    "wavefront",
+    "vmware"
   ],
   "devDependencies": {
     "chai": "^4.1.2",
