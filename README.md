@@ -4,14 +4,14 @@ A node.js Wavefront reporters for [metrics](https://www.npmjs.com/package/metric
 
 # Installation
 
-    $ npm install metrics-wavefront
+    $ npm install wavefrontmetrics
 
 # Usage
 
 ## Wavefront Reporters
 
 ```javascript
-var metrics = require('metrics-wavefront');
+var metrics = require('wavefrontmetrics');
 var registry = new metrics.Registry();
 
 // Report directly to a Wavefront server
@@ -26,7 +26,7 @@ proxyReporter.start(5000);
 
 ## Metrics
 ```javascript
-var metrics = require('metrics-wavefront');
+var metrics = require('wavefrontmetrics');
 var registry = new metrics.Registry();
 
 // Counter with metric level tags
@@ -53,7 +53,7 @@ t.update(50);
 ## DeltaCounter
 
 ```javascript
-var metrics = require('metrics-wavefront');
+var metrics = require('wavefrontmetrics');
 var registry = new metrics.Registry();
 
 var deltaCounter = new metrics.Counter();
