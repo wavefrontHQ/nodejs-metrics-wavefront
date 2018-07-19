@@ -15,11 +15,11 @@ const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
 
 // Report directly to a Wavefront server
-const directReporter = new metrics.WavefrontDirectReporter(registry, "wavefront.nodejs.direct", "<cluster>.wavefront.com", "<wavefront_api_token>", { 'tag0': "default", 'source': "wavefront-nodejs-example"});
+const directReporter = new metrics.WavefrontDirectReporter(registry, "wavefront.nodejs.direct", "<cluster>.wavefront.com", "<wavefront_api_token>", { "tag0": "default", "source": "wavefront-nodejs-example"});
 directReporter.start(5000);
 
 // Report to a Wavefront proxy
-const proxyReporter = new metrics.WavefrontProxyReporter(registry, "wavefront.nodejs.proxy", "localhost", 2878, { 'tag0': "default", 'source': "wavefront-nodejs-example"});
+const proxyReporter = new metrics.WavefrontProxyReporter(registry, "wavefront.nodejs.proxy", "localhost", 2878, { "tag0": "default", "source": "wavefront-nodejs-example"});
 proxyReporter.start(5000);
 ```
 
@@ -58,6 +58,6 @@ const registry = new metrics.Registry();
 
 let deltaCounter = new metrics.Counter();
 let deltaName = metrics.deltaCounterName("http.requests");
-registry.addTaggedMetric(deltaName, deltaCounter);
+registry.addTaggedMetric(deltaName, deltaCounter, {"key1":"val1"});
 deltaCounter.inc(10);
 ```
