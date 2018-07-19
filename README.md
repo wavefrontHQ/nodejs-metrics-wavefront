@@ -58,6 +58,6 @@ const registry = new metrics.Registry();
 
 let deltaCounter = new metrics.Counter();
 let deltaName = metrics.deltaCounterName("http.requests");
-registry.addTaggedMetric(deltaName, deltaCounter);
+registry.addTaggedMetric(deltaName, deltaCounter, {"key1":"val1"});
 deltaCounter.inc(10);
 ```
