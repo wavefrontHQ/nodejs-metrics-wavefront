@@ -31,8 +31,12 @@ const registry = new metrics.Registry();
 
 // Counter with metric level tags
 let c = new metrics.Counter();
-registry.addTaggedMetric("http.requests", c, {"key1":"val1"});
+registry.addTaggedMetric("request.counter", c, {"key1":"val1"});
 c.inc();
+
+// Gauge with metric level tags
+let g = new metrics.Gauge(2.2);
+registry.addTaggedMetric("request.gauge", g, {"key1":"val1"});
 
 // Histogram
 let h = new metrics.Histogram();

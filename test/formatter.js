@@ -28,6 +28,19 @@ describe('deltaPoint', function() {
   });
 });
 
+describe('gaugePoint', function() {
+  it('Validate gauge point format', function() {
+    const gauge = new metrics.Gauge(2.2);
+    gauge.name = "requests.value";
+
+    let point = formatter.gaugePoint(gauge, 'test', '', "key1=\"val1\"");
+    expect(point).to.be.equal('test.requests.value 2.2 key1=\"val1\"');
+
+    point = formatter.gaugePoint(gauge, 'test', '1350450000', "key1=\"val1\"")
+    expect(point).to.be.equal('test.requests.value 2.2 1350450000 key1=\"val1\"');
+  });
+});
+
 describe('meterPoints', function() {
   it('Validate meter point format', function() {
     const meter = new metrics.Meter();
