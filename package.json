@@ -25,6 +25,6 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "metrics": "^0.1.11"
+    "metrics": "^0.1.21"
   }
 }
