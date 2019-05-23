@@ -50,7 +50,7 @@ m.mark(1);
 
 // Timer
 let t = new metrics.Timer();
-registry.addTaggedMetric("request.timer", m, {"key1":"val1"});
+registry.addTaggedMetric("request.timer", t, {"key1":"val1"});
 t.update(50);
 ```
 
