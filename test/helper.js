@@ -4,10 +4,10 @@ const helper = require('../lib/helper');
 describe('encodeKey', function() {
   it('Validate encode key', function() {
     let key11 = helper.encodeKey('http.request', {"key1":"val1"});
-    expect(key11).to.be.equal('http.request-tags={"key1":"val1"}');
+    expect(key11).to.be.equal('http.request-tags=[["key1","val1"]]');
 
     let key12 = helper.encodeKey('http.request', {"key1":"val2"});
-    expect(key12).to.be.equal('http.request-tags={"key1":"val2"}');
+    expect(key12).to.be.equal('http.request-tags=[["key1","val2"]]');
 
     let key = helper.encodeKey('http.request');
     expect(key).to.be.equal('http.request')
