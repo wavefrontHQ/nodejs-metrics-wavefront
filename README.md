@@ -35,7 +35,7 @@ registry.addTaggedMetric("request.counter", c, {"key1":"val1"});
 c.inc();
 
 // Gauge with metric level tags
-let g = new metrics.Gauge(() => 2.2);
+let g = new metrics.Gauge(2.2);
 registry.addTaggedMetric("request.gauge", g, {"key1":"val1"});
 
 // Histogram
