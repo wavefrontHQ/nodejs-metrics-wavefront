@@ -30,7 +30,7 @@ describe('deltaPoint', function() {
 
 describe('gaugePoint', function() {
   it('Validate gauge point format', function() {
-    const gauge = new metrics.Gauge(2.2);
+    const gauge = new metrics.Gauge(() => 2.2);
     gauge.name = "requests.value";
 
     let point = formatter.gaugePoint(gauge, gauge.name, 'test', '', "key1=\"val1\"");
