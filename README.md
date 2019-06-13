@@ -36,7 +36,9 @@ c.inc();
 
 // Gauge with metric level tags
 // Note that you can only pass in a function to a Gauge.
-let g = new metrics.Gauge(() => 2.2);
+var g = new metrics.Gauge(() => { 
+  return 2 + Math.random(5);
+});
 registry.addTaggedMetric("request.gauge", g, {"key1":"val1"});
 
 // Histogram
