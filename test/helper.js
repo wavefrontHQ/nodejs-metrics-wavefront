@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
 const helper = require('../lib/helper');
+const metrics = require('../lib/index');
 
 describe('encodeKey', function() {
   it('Validate encode key', function() {
@@ -25,5 +26,15 @@ describe('decodeKey', function() {
     decodedKey = helper.decodeKey(key);
     expect(decodedKey[0]).to.be.equal('http.request');
     expect(decodedKey[1]).to.be.equal(null);
+  });
+});
+
+describe('encodeKey', function () {
+  it('wrong tags API', function () {
+    const registry = new metrics.Registry();
+    let c = new metrics.Counter();
+    expect( function () {
+      registry.addTaggedMetric("request.counter1", c, "{\"key1\":\"val1\"}");
+    }).throw("Wrong Tags Object Sent To The API");
   });
 });
