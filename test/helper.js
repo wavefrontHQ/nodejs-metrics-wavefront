@@ -1,6 +1,5 @@
 const expect = require('chai').expect;
 const helper = require('../lib/helper');
-const metrics = require('../lib/index');
 
 describe('encodeKey', function() {
   it('Validate encode key', function() {
@@ -100,3 +99,4 @@ describe('encodeKey', function () {
     }).throw("Wrong Tags datatype sent to the API. Expected: Object. Actual: RegExp");
   });
 });
+
