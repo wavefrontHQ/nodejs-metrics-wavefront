@@ -54,14 +54,6 @@ describe('encodeKey', function () {
 });
 
 describe('encodeKey', function () {
-  it('BigInt for tags', function () {
-    expect( function () {
-      helper.encodeKey("http.request", 42n);
-    }).throw("Wrong Tags datatype sent to the API. Expected: Object. Actual: BigInt");
-  });
-});
-
-describe('encodeKey', function () {
   it('Boolean for tags', function () {
     expect( function () {
       helper.encodeKey("http.request", true);
@@ -99,4 +91,3 @@ describe('encodeKey', function () {
     }).throw("Wrong Tags datatype sent to the API. Expected: Object. Actual: RegExp");
   });
 });
-
