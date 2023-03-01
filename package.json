@@ -4,7 +4,7 @@
   "description": "Wavefront Reporters for metrics",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=14.17.3"
   },
   "scripts": {
     "test": "mocha"
