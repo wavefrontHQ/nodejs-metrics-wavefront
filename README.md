@@ -1,3 +1,7 @@
+> **Warning**
+>
+> VMware has ended active development of this project. this repository will no longer be updated.
+
 # Wavefront reporters for metrics [![travis build status](https://travis-ci.com/wavefrontHQ/nodejs-metrics-wavefront.svg?branch=master)](https://travis-ci.com/wavefrontHQ/nodejs-metrics-wavefront)
 
 A node.js Wavefront reporters for [metrics](https://www.npmjs.com/package/metrics).
